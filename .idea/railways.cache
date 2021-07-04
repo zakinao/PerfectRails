@@ -1,4 +1,15 @@
                                Prefix Verb   URI Pattern                                                                              Controller#Action
+                                 root GET    /                                                                                        welcome#index
+                                      GET    /auth/:provider/callback(.:format)                                                       sessions#create
+                               logout DELETE /logout(.:format)                                                                        sessions#destroy
+                        event_tickets GET    /events/:event_id/tickets(.:format)                                                      tickets#index
+                                      POST   /events/:event_id/tickets(.:format)                                                      tickets#create
+                     new_event_ticket GET    /events/:event_id/tickets/new(.:format)                                                  tickets#new
+                    edit_event_ticket GET    /events/:event_id/tickets/:id/edit(.:format)                                             tickets#edit
+                         event_ticket GET    /events/:event_id/tickets/:id(.:format)                                                  tickets#show
+                                      PATCH  /events/:event_id/tickets/:id(.:format)                                                  tickets#update
+                                      PUT    /events/:event_id/tickets/:id(.:format)                                                  tickets#update
+                                      DELETE /events/:event_id/tickets/:id(.:format)                                                  tickets#destroy
                                events GET    /events(.:format)                                                                        events#index
                                       POST   /events(.:format)                                                                        events#create
                             new_event GET    /events/new(.:format)                                                                    events#new
@@ -7,9 +18,6 @@
                                       PATCH  /events/:id(.:format)                                                                    events#update
                                       PUT    /events/:id(.:format)                                                                    events#update
                                       DELETE /events/:id(.:format)                                                                    events#destroy
-                                 root GET    /                                                                                        welcome#index
-                                      GET    /auth/:provider/callback(.:format)                                                       sessions#create
-                               logout DELETE /logout(.:format)                                                                        sessions#destroy
         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
