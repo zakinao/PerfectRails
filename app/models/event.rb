@@ -1,5 +1,7 @@
 class Event < ApplicationRecord
 
+  searchkick language: "japanese"
+
   attr_accessor :remove_image
   before_save :remove_image_if_user_accept
 
@@ -36,4 +38,15 @@ class Event < ApplicationRecord
       errors.add(:start_at, "は終了時間よりも前に設定してください")
     end
   end
+
+  def search_data
+    {
+      name: name,
+      place: place,
+      content: content,
+      owner_name: owner&.name,
+      start_at: start_at
+    }
+  end
+
 end
