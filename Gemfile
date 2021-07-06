@@ -34,6 +34,8 @@ gem 'image_processing', '~> 1.2'
 gem 'active_storage_validations', '~> 0.8.8'
 gem 'kaminari', '~> 1.2.0'
 
+gem 'simplecov', require: false, group: :test
+
 gem 'searchkick', '~> 4.3.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -58,6 +60,7 @@ group :development do
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
+  gem 'rack-mini-profiler', require: false
 end
 
 group :test do
